@@ -29,18 +29,23 @@
 <!-----------------------------CPF Script starts here  ----------------------------->    
 
 <script>
-   var mosturedata;
+     var moisturedata;
   var relay = 0;
+
   // Initial Setup: Temperature A0; Moisture Sensor A3; Relay Sensor D5
  function setup(){
  cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 3, "INPUT"], ["setPinMode", "digital", 5, "OUTPUT"]');
-  }// send for setup()
+  }
+
   function main() {
     // This initializes sensors
     mosturedata= cpf.get("a3");
     relay= cpf.get("d5");
+   
     
-  
+    //This sends captured value to html
+    document.getElementById("lightdata").innerHTML = mosturedata;
+
     // This loads on and off 
     if(mosturedata >= 50) {
       cpf.request('["digitalWrite", 5, 1]');
@@ -51,6 +56,7 @@
     }
     setTimeout(main, 1000); //Sets delay for 1 second
   } // End for main()
+
   setup();
   main();
 
