@@ -40,8 +40,7 @@
     mosturedata= cpf.get("a3");
     relay= cpf.get("d5");
     
-    //This sends captured value to html
-    document.getElementById("mosturedata").innerHTML = mosturedata;
+  
     // This loads on and off 
     if(mosturedata >= 50) {
       cpf.request('["digitalWrite", 5, 1]');
