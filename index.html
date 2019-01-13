@@ -28,7 +28,7 @@
 <!-----------------------------CPF Script starts here  ----------------------------->    
 
 <script>
-     var mosturedata;
+     var moistValue;
   var relay = 0;
 
   // Initial Setup: Temperature A0; Moisture Sensor A3; Relay Sensor D5
@@ -38,12 +38,12 @@
 
   function main() {
     // This initializes sensors
-    mosturedata= cpf.get("a3");
+    moistValue= cpf.get("a3");
     relay= cpf.get("d5");
    
     
     //This sends captured value to html
-    document.getElementById("mosturedata").innerHTML = mosturedata;
+    document.getElementById("mosturedata").innerHTML = moistValue;
 
     // This loads on and off 
     if(mosturedata >= 50) {
