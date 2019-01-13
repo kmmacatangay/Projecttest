@@ -30,6 +30,7 @@
 <script>
      var moistValue;
   var relay = 0;
+  var lights;
 
   // Initial Setup: Temperature A0; Moisture Sensor A3; Relay Sensor D5
  function setup(){
@@ -40,10 +41,12 @@
     // This initializes sensors
     moistValue= cpf.get("a0");
     relay= cpf.get("d5");
+    lights= cpf.get("3");
    
     
     //This sends captured value to html
     document.getElementById("mosturedata").innerHTML = moistValue;
+    document.getElementById("lightssens").innerHTML = lights;
 
     // This loads on and off 
     if(mosturedata >= 50) {
