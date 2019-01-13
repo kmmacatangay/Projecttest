@@ -33,7 +33,7 @@
   var relay = 0;
   // Initial Setup: Temperature A0; Moisture Sensor A3; Relay Sensor D5
  function setup(){
- cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 3, "INPUT"], ["setPinMode", "digital", 5, "INPUT"]');
+ cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 3, "INPUT"], ["setPinMode", "digital", 5, "OUTPUT"]');
   }// send for setup()
   function main() {
     // This initializes sensors
@@ -44,11 +44,11 @@
     document.getElementById("mosturedata").innerHTML = mosturedata;
     // This loads on and off 
     if(mosturedata >= 50) {
-      cpf.request('["digitalWrite", 2, 1]');
+      cpf.request('["digitalWrite", 5, 1]');
       document.getElementById("relayActivator").style.opacity = "1";
     } else{
       document.getElementById("relayActivator").style.opacity = "0";        
-      cpf.request('["digitalWrite", 2, 0]');
+      cpf.request('["digitalWrite", 5, 0]');
     }
     setTimeout(main, 1000); //Sets delay for 1 second
   } // End for main()
