@@ -29,7 +29,7 @@
 <!-----------------------------CPF Script starts here  ----------------------------->    
 
 <script>
-  void setup() 
+  function setup() 
   {
 Serial.begin(9600);
 int relay = 8;//sa relay na pin so D8 ko siya isset
@@ -37,7 +37,7 @@ volatile byte relayState = LOW;
 pinMode(8,OUTPUT);
 int sensorValue = analogRead(A0);
 }
-void loop() {
+function loop() {
 if(sensorValue >= 50)   pinMode(relay, OUTPUT); 
 digitalWrite(relay, HIGH);  
   delay(5000);  
